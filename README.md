@@ -1,7 +1,7 @@
 # Sinout
 
 ## Descrição
-Uma página de destino moderna para o Sinout, uma plataforma educacional inovadora que oferece cursos e recursos para desenvolvimento profissional.
+Uma página de destino moderna para o Sinout.
 
 ## Arquitetura
 O projeto é construído com Next.js, utilizando uma arquitetura de componentes React. A estrutura inclui:
