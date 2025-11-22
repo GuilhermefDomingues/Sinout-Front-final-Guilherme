@@ -178,8 +178,8 @@ export const PricingCard = ({
   `;
   const buttonClasses = `
     mt-auto w-full py-2.5 rounded-xl font-semibold text-[14px] transition font-sans
-    ${buttonVariant === 'primary' 
-      ? 'bg-cyan-400 hover:bg-cyan-300 text-foreground' 
+    ${buttonVariant === 'primary'
+      ? 'bg-cyan-400 hover:bg-cyan-300 text-foreground'
       : 'bg-black/10 hover:bg-black/20 text-foreground border border-black/20 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-white/20'
     }
   `;
@@ -234,12 +234,12 @@ export const ModernPricingPage = ({
 }: ModernPricingPageProps) => {
   return (
     <section
-      className="relative bg-background text-foreground w-full overflow-hidden py-16"
+      className="relative bg-background text-foreground w-full overflow-hidden py-20"
     >
       {showAnimatedBackground && <ShaderCanvas />}
 
       <div className="relative z-10 w-full min-h-[70vh] flex flex-col items-center justify-center px-4 py-8">
-        <div className="w-full max-w-5xl mx-auto text-center mb-14">
+        <div className="w-full max-w-7xl mx-auto text-center mb-14">
           <h1 className="text-[48px] md:text-[64px] font-extralight leading-tight tracking-[-0.03em] bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-cyan-500 to-blue-600 dark:from-white dark:via-cyan-300 dark:to-blue-400 font-display">
             {title}
           </h1>

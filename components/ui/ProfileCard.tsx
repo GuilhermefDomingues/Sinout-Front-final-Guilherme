@@ -1,8 +1,9 @@
 'use client';
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 import './ProfileCard.css';
+import Image from 'next/image';
 
-const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
+const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg, rgba(255, 228, 196, 0.8) 0%, rgba(255, 218, 185, 0.6) 100%)';
 
 const ANIMATION_CONFIG = {
   INITIAL_DURATION: 1200,
@@ -177,13 +178,13 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     };
   }, [enableTilt]);
 
-  const getOffsets = (evt: any, el: HTMLElement) => {
+  const getOffsets = (evt: PointerEvent, el: HTMLElement) => {
     const rect = el.getBoundingClientRect();
     return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
   };
 
   const handlePointerMove = useCallback(
-    (event: any) => {
+    (event: PointerEvent) => {
       const shell = shellRef.current;
       if (!shell || !tiltEngine) return;
       const { x, y } = getOffsets(event, shell);
@@ -193,7 +194,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   );
 
   const handlePointerEnter = useCallback(
-    (event: any) => {
+    (event: PointerEvent) => {
       const shell = shellRef.current;
       if (!shell || !tiltEngine) return;
 
@@ -269,9 +270,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
     const handleClick = () => {
       if (!enableMobileTilt || location.protocol !== 'https:') return;
-      const anyMotion = (window as any).DeviceMotionEvent;
-      if (anyMotion && typeof anyMotion.requestPermission === 'function') {
-        anyMotion
+      const deviceMotionEvent = window.DeviceMotionEvent as typeof DeviceMotionEvent & { requestPermission?: () => Promise<string> } | undefined;
+      if (deviceMotionEvent && typeof deviceMotionEvent.requestPermission === 'function') {
+        deviceMotionEvent
           .requestPermission()
           .then((state: string) => {
             if (state === 'granted') {
@@ -312,12 +313,12 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     handleDeviceOrientation
   ]);
 
-  const cardStyle = useMemo(
+  const cardStyle = useMemo<Record<string, string>>(
     () => ({
       '--icon': iconUrl ? `url(${iconUrl})` : 'none',
       '--grain': grainUrl ? `url(${grainUrl})` : 'none',
       '--inner-gradient': innerGradient ?? DEFAULT_INNER_GRADIENT,
-      '--behind-glow-color': behindGlowColor ?? 'rgba(125, 190, 255, 0.67)',
+      '--behind-glow-color': behindGlowColor ?? 'rgba(255, 200, 150, 0.5)',
       '--behind-glow-size': behindGlowSize ?? '50%'
     }),
     [iconUrl, grainUrl, innerGradient, behindGlowColor, behindGlowSize]
@@ -328,7 +329,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   }, [onContactClick]);
 
   return (
-    <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
+    <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle as React.CSSProperties}>
       {behindGlowEnabled && <div className="pc-behind" />}
       <div ref={shellRef} className="pc-card-shell">
         <section className="pc-card">
@@ -336,11 +337,12 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
             <div className="pc-shine" />
             <div className="pc-glare" />
             <div className="pc-content pc-avatar-content">
-              <img
+              <Image
                 className="avatar"
                 src={avatarUrl}
                 alt={`${name || 'User'} avatar`}
-                loading="lazy"
+                width={100}
+                height={100}
                 onError={(e) => {
                   const t = e.target as HTMLImageElement;
                   t.style.display = 'none';
@@ -350,10 +352,11 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 <div className="pc-user-info">
                   <div className="pc-user-details">
                     <div className="pc-mini-avatar">
-                      <img
+                      <Image
                         src={miniAvatarUrl || avatarUrl}
                         alt={`${name || 'User'} mini avatar`}
-                        loading="lazy"
+                        width={50}
+                        height={50}
                         onError={(e) => {
                           const t = e.target as HTMLImageElement;
                           t.style.opacity = '0.5';
