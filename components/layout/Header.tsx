@@ -94,9 +94,11 @@ export function ModernMenu({
         const isHome = pathname === "/";
         const isEquipe = pathname === "/equipe";
         const isEstatistica = pathname === "/estatistica";
+        const isSobre = pathname === "/sobre";
 
         if (isHome) {
             return [
+                { label: "Sobre", href: "/sobre" },
                 { label: "Equipe", href: "/equipe" },
                 { label: "Planos", href: "/#pagamento" },
                 { label: "Estatística", href: "/estatistica" },
@@ -106,6 +108,7 @@ export function ModernMenu({
         } else if (isEquipe) {
             return [
                 { label: "Home", href: "/" },
+                { label: "Sobre", href: "/sobre" },
                 { label: "Planos", href: "/#pagamento" },
                 { label: "Estatística", href: "/estatistica" },
                 { label: "Central de Ajuda", href: "/ajuda" },
@@ -114,8 +117,18 @@ export function ModernMenu({
         } else if (isEstatistica) {
             return [
                 { label: "Home", href: "/" },
+                { label: "Sobre", href: "/sobre" },
                 { label: "Equipe", href: "/equipe" },
                 { label: "Planos", href: "/#pagamento" },
+                { label: "Central de Ajuda", href: "/ajuda" },
+                { label: "Sistema", href: "/sistema" },
+            ];
+        } else if (isSobre) {
+            return [
+                { label: "Home", href: "/" },
+                { label: "Equipe", href: "/equipe" },
+                { label: "Planos", href: "/#pagamento" },
+                { label: "Estatística", href: "/estatistica" },
                 { label: "Central de Ajuda", href: "/ajuda" },
                 { label: "Sistema", href: "/sistema" },
             ];
@@ -223,6 +236,8 @@ export function ModernMenu({
                                         case "equipe":
                                         case "home":
                                             return <IconHome className="h-5 w-5 text-muted-foreground/80" />;
+                                        case "sobre":
+                                            return <IconInfo className="h-5 w-5 text-muted-foreground/80" />;
                                         case "planos":
                                             return <IconCreditCard className="h-5 w-5 text-muted-foreground/80" />;
                                         case "estatística":
