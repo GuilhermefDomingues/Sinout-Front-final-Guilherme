@@ -93,7 +93,7 @@ export function ContextMenu() {
         {
             label: "Sobre",
             icon: Info,
-            action: () => router.push("/equipe"),
+            action: () => router.push("/sobre"),
         },
     ];
 
