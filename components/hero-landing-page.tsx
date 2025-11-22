@@ -25,7 +25,7 @@ export function TuringLanding() {
   }, [mobileOpen])
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden relative">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
       {/* Subtle blue background gradient overlays */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,132,255,0.15)] via-transparent to-transparent opacity-50" />
@@ -36,7 +36,7 @@ export function TuringLanding() {
       <main className="main min-h-screen pt-[300px] pb-20 relative">
         {/* Hero Video Background */}
         <video
-          className="hero-video absolute -top-[20%] left-0 w-full h-[120%] object-cover z-0 bg-[#111]"
+          className="hero-video absolute -top-[20%] left-0 w-full h-[120%] object-cover z-0 bg-background"
           autoPlay
           muted
           loop
@@ -56,17 +56,17 @@ export function TuringLanding() {
               <br />
               AGI deployment
             </h1>
-            <p className="text-lg leading-relaxed text-[#b8b8b8] mb-12 font-normal">
+            <p className="text-lg leading-relaxed text-muted-foreground mb-12 font-normal">
               Trusted by global enterprises, we solve business challenges and
               <br />
               boost productivity through intelligent systems.
             </p>
             <div className="flex gap-5 items-center">
-              <button className="flex items-center gap-2.5 bg-[#0084ff] text-white py-3.5 px-7 rounded-md text-base font-medium hover:bg-[#0066cc] hover:translate-x-0.5 transition-all duration-200">
+              <button className="flex items-center gap-2.5 bg-primary text-primary-foreground py-3.5 px-7 rounded-md text-base font-medium hover:bg-primary/90 hover:translate-x-0.5 transition-all duration-200">
                 Get Started
                 <ArrowRight className="w-5 h-5" />
               </button>
-              <button className="bg-transparent text-[#b8b8b8] py-3.5 px-7 text-base font-medium hover:text-white transition-colors duration-200">
+              <button className="bg-transparent text-muted-foreground py-3.5 px-7 text-base font-medium hover:text-foreground transition-colors duration-200">
                 Learn more
               </button>
             </div>
@@ -76,11 +76,11 @@ export function TuringLanding() {
           <div className="flex gap-20 items-end">
             <div className="text-center">
               <div className="text-[64px] font-light leading-none mb-3">40+</div>
-              <div className="text-base text-[#b8b8b8] font-normal">Industries innovated</div>
+              <div className="text-base text-muted-foreground font-normal">Industries innovated</div>
             </div>
             <div className="text-center">
               <div className="text-[64px] font-light leading-none mb-3">3M+</div>
-              <div className="text-base text-[#b8b8b8] font-normal">Professionals available</div>
+              <div className="text-base text-muted-foreground font-normal">Professionals available</div>
             </div>
           </div>
         </div>

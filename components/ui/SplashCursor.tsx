@@ -1,6 +1,7 @@
 // @ts-nocheck
 'use client';
 import { useEffect, useRef } from 'react';
+import { useTheme } from 'next-themes';
 
 interface Pointer {
   id: number;
@@ -28,9 +29,11 @@ function SplashCursor({
   SPLAT_FORCE = 6000,
   SHADING = true,
   COLOR_UPDATE_SPEED = 10,
-  BACK_COLOR = { r: 0.5, g: 0, b: 0 },
+  BACK_COLOR,
   TRANSPARENT = true
 }) {
+  const { resolvedTheme } = useTheme();
+  const effectiveBackColor = BACK_COLOR || (resolvedTheme === 'light' ? { r: 1, g: 1, b: 1 } : { r: 0, g: 0, b: 0 });
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -77,7 +80,7 @@ function SplashCursor({
       SHADING,
       COLOR_UPDATE_SPEED,
       PAUSED: false,
-      BACK_COLOR,
+      BACK_COLOR: effectiveBackColor,
       TRANSPARENT
     };
 

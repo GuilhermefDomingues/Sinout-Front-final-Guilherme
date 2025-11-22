@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import dynamic from 'next/dynamic';
+import { ToggleTheme } from "@/components/toggle-theme";
+import { ModernMenu } from "@/components/ModernMenu";
+import { useTheme } from "next-themes";
 
 // Components loaded dynamically to reduce initial bundle size and main-thread work
-const StaggeredMenu = dynamic(() => import('../components/ui/StaggeredMenu'), { ssr: false });
 const Particles = dynamic(() => import('../components/Particles'), { ssr: false });
 
 // Lazy load components below the fold
@@ -16,6 +18,21 @@ const ProfileCard = dynamic(() => import("../components/ui/ProfileCard"));
 const Footer7 = dynamic(() => import("@/components/footer-7").then(mod => mod.Footer7));
 
 export default function Home() {
+  const { resolvedTheme } = useTheme();
+  const particleColors = resolvedTheme === 'light' ? ['#ffffff'] : ['#ff7a00'];
+
+  const menuItems = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Contact", href: "#contact" },
+  ];
+
+  const socialItems = [
+    { label: "GitHub", href: "https://github.com" },
+    { label: "LinkedIn", href: "https://linkedin.com" },
+    { label: "Twitter", href: "https://twitter.com" },
+  ];
   const dataGallery = [
     {
       id: "shadcn-ui",
@@ -223,7 +240,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <div style={{ width: '100%', height: '100vh', position: 'relative' }}>
         <Particles
-          particleColors={['#ff7a00']}
+          particleColors={particleColors}
           particleCount={600}
           particleSpread={10}
           speed={0.1}
@@ -233,8 +250,8 @@ export default function Home() {
           disableRotation={false}
         />
       </div>
-
-      <StaggeredMenu isFixed />
+      <ToggleTheme />
+      <ModernMenu items={menuItems} socialItems={socialItems} />
       <Timeline data={data} />
       <Gallery4 items={dataGallery} />
       <section id="pagamento">
