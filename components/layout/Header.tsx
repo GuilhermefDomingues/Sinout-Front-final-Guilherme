@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, Home as IconHome, Info as IconInfo, Layers as IconLayers, Mail as IconMail, Github as IconGithub, Linkedin as IconLinkedin, Twitter as IconTwitter, MonitorCog as IconMonitor, Sun as IconSun, Moon as IconMoon, BarChart3 as IconBarChart, HelpCircle as IconHelp, Settings as IconSettings } from "lucide-react";
+import { Menu, Home as IconHome, Info as IconInfo, Layers as IconLayers, Mail as IconMail, Github as IconGithub, Linkedin as IconLinkedin, Twitter as IconTwitter, MonitorCog as IconMonitor, Sun as IconSun, Moon as IconMoon, BarChart3 as IconBarChart, HelpCircle as IconHelp, Settings as IconSettings, CreditCard as IconCreditCard } from "lucide-react";
 import { useTheme } from 'next-themes';
 import Image from "next/image";
 import Link from "next/link";
@@ -98,6 +98,7 @@ export function ModernMenu({
         if (isHome) {
             return [
                 { label: "Equipe", href: "/equipe" },
+                { label: "Planos", href: "/#pagamento" },
                 { label: "Estatística", href: "/estatistica" },
                 { label: "Central de Ajuda", href: "/ajuda" },
                 { label: "Sistema", href: "/sistema" },
@@ -105,6 +106,7 @@ export function ModernMenu({
         } else if (isEquipe) {
             return [
                 { label: "Home", href: "/" },
+                { label: "Planos", href: "/#pagamento" },
                 { label: "Estatística", href: "/estatistica" },
                 { label: "Central de Ajuda", href: "/ajuda" },
                 { label: "Sistema", href: "/sistema" },
@@ -113,6 +115,7 @@ export function ModernMenu({
             return [
                 { label: "Home", href: "/" },
                 { label: "Equipe", href: "/equipe" },
+                { label: "Planos", href: "/#pagamento" },
                 { label: "Central de Ajuda", href: "/ajuda" },
                 { label: "Sistema", href: "/sistema" },
             ];
@@ -167,7 +170,7 @@ export function ModernMenu({
                     <div className="border-l border-border pl-4 ml-4 flex items-center gap-4">
                         <ThemeButtons />
                         <Link href="/login">
-                            <Button variant="default" size="sm" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white border-0">
+                            <Button variant="default" size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground border-0">
                                 Login
                             </Button>
                         </Link>
@@ -206,7 +209,7 @@ export function ModernMenu({
 
                         <div className="px-5 mt-6">
                             <Link href="/login" onClick={() => setOpen(false)}>
-                                <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white border-0 h-12 text-lg font-semibold shadow-lg shadow-purple-500/20">
+                                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground border-0 h-12 text-lg font-semibold">
                                     Login
                                 </Button>
                             </Link>
@@ -220,6 +223,8 @@ export function ModernMenu({
                                         case "equipe":
                                         case "home":
                                             return <IconHome className="h-5 w-5 text-muted-foreground/80" />;
+                                        case "planos":
+                                            return <IconCreditCard className="h-5 w-5 text-muted-foreground/80" />;
                                         case "estatística":
                                             return <IconBarChart className="h-5 w-5 text-muted-foreground/80" />;
                                         case "central de ajuda":

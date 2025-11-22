@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUp, Moon, Sun, Share2, Settings, HelpCircle, Info, X } from "lucide-react";
+import { ArrowUp, Moon, Sun, Share2, Settings, HelpCircle, Info, X, CreditCard } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 
@@ -51,6 +51,18 @@ export function ContextMenu() {
             label: theme === "dark" ? "Modo Claro" : "Modo Escuro",
             icon: theme === "dark" ? Sun : Moon,
             action: () => setTheme(theme === "dark" ? "light" : "dark"),
+        },
+        {
+            label: "Planos",
+            icon: CreditCard,
+            action: () => {
+                const element = document.getElementById("pagamento");
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                } else {
+                    router.push("/#pagamento");
+                }
+            },
         },
         {
             label: "Compartilhar",
