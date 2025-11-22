@@ -93,6 +93,7 @@ export function ModernMenu({
     const getMenuItems = () => {
         const isHome = pathname === "/";
         const isEquipe = pathname === "/equipe";
+        const isEstatistica = pathname === "/estatistica";
 
         if (isHome) {
             return [
@@ -105,6 +106,13 @@ export function ModernMenu({
             return [
                 { label: "Home", href: "/" },
                 { label: "Estatística", href: "/estatistica" },
+                { label: "Central de Ajuda", href: "/ajuda" },
+                { label: "Sistema", href: "/sistema" },
+            ];
+        } else if (isEstatistica) {
+            return [
+                { label: "Home", href: "/" },
+                { label: "Equipe", href: "/equipe" },
                 { label: "Central de Ajuda", href: "/ajuda" },
                 { label: "Sistema", href: "/sistema" },
             ];
@@ -209,7 +217,8 @@ export function ModernMenu({
                             {menuItems.map((item) => {
                                 const icon = (() => {
                                     switch (item.label.toLowerCase()) {
-                                        case "equipe/home":
+                                        case "equipe":
+                                        case "home":
                                             return <IconHome className="h-5 w-5 text-muted-foreground/80" />;
                                         case "estatística":
                                             return <IconBarChart className="h-5 w-5 text-muted-foreground/80" />;
