@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
+        source: '/api/FacialAnalysis/:path*',
+        destination: 'http://localhost:5236/api/FacialAnalysis/:path*',
+      },
+      {
         source: '/api/:path*',
         destination: 'http://localhost:5240/api/:path*',
       },

@@ -5,10 +5,13 @@ import api from '@/lib/api';
 import { useRouter } from 'next/navigation';
 
 interface User {
-    id?: number;
+    id?: string;
     name?: string;
     email?: string;
     role?: string;
+    patientId?: string;
+    patientName?: string;
+    profilePhoto?: number;
     [key: string]: any;
 }
 
@@ -27,12 +30,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [loading, setLoading] = useState(true);
     const router = useRouter();
 
-    const checkAuth = async () => {
+    const checkAuth = async (): Promise<boolean> => {
         try {
-            const response = await api.get('/api/auth/me');
+            const response = await api.get('/api/users/me');
             setUser(response.data);
+            return true;
         } catch (error) {
             setUser(null);
+            return false;
         } finally {
             setLoading(false);
         }
@@ -52,8 +57,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         await api.post('/api/auth/register', data);
         // Tenta verificar se o registro já logou o usuário
         try {
-            await checkAuth();
-            if (user) {
+            const isAuthenticated = await checkAuth();
+            if (isAuthenticated) {
                 router.push('/');
             } else {
                 router.push('/login');

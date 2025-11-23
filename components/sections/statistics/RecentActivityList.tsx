@@ -117,7 +117,7 @@ export function RecentActivityList({ history, rules }: RecentActivityListProps) 
                                     return triggeredRule ? (
                                         <div className="mt-2 pt-2 border-t border-border/50">
                                             <p className="text-xs text-muted-foreground">
-                                                <span className="font-medium">Regra acionada:</span> {triggeredRule.mensagem}
+                                                <span className="font-medium">Regra acionada:</span> {triggeredRule.message}
                                             </p>
                                         </div>
                                     ) : null;

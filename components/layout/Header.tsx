@@ -99,6 +99,7 @@ export function ModernMenu({
         const isSobre = pathname === "/sobre";
         const isPrivacidade = pathname === "/privacidade";
         const isTermos = pathname === "/termos";
+        const isSistema = pathname === "/sistema";
 
         if (isHome) {
             return [
@@ -127,6 +128,15 @@ export function ModernMenu({
         } else if (isSobre) {
             return [
                 { label: "Home", href: "/" },
+                { label: "Equipe", href: "/equipe" },
+                { label: "Planos", href: "/#pagamento" },
+                { label: "Estatística", href: "/estatistica" },
+                { label: "Central de Ajuda", href: "/ajuda" },
+            ];
+        } else if (isSistema) {
+            return [
+                { label: "Home", href: "/" },
+                { label: "Sobre", href: "/sobre" },
                 { label: "Equipe", href: "/equipe" },
                 { label: "Planos", href: "/#pagamento" },
                 { label: "Estatística", href: "/estatistica" },
@@ -192,7 +202,7 @@ export function ModernMenu({
                         <ThemeButtons />
                         {user ? (
                             <div className="flex items-center gap-2">
-                                <Link href="/estatistica">
+                                <Link href="/sistema">
                                     <Button variant="outline" size="sm">
                                         <IconSettings className="w-4 h-4 mr-2" />
                                         Sistema
@@ -258,7 +268,7 @@ export function ModernMenu({
                                             <p className="text-sm text-muted-foreground">{user.email}</p>
                                         </div>
                                     </div>
-                                    <Link href="/estatistica" onClick={() => setOpen(false)}>
+                                    <Link href="/sistema" onClick={() => setOpen(false)}>
                                         <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground border-0 h-12 text-lg font-semibold">
                                             <IconSettings className="w-5 h-5 mr-2" />
                                             Sistema

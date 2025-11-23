@@ -12,6 +12,8 @@ interface RegisterFormData {
     email: string;
     password: string;
     confirmPassword: string;
+    phone: string;
+    patientName: string;
 }
 
 interface FormErrors {
@@ -19,6 +21,8 @@ interface FormErrors {
     email?: string;
     password?: string;
     confirmPassword?: string;
+    phone?: string;
+    patientName?: string;
 }
 
 const CardRegister: React.FC = () => {
@@ -28,6 +32,8 @@ const CardRegister: React.FC = () => {
         email: '',
         password: '',
         confirmPassword: '',
+        phone: '',
+        patientName: '',
     });
 
     const [errors, setErrors] = useState<FormErrors>({});
@@ -46,7 +52,7 @@ const CardRegister: React.FC = () => {
         return emailRegex.test(email);
     };
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
         if (errors[name as keyof FormErrors]) {
@@ -65,6 +71,9 @@ const CardRegister: React.FC = () => {
         else if (formData.password.length < 6) newErrors.password = 'A senha deve ter no mínimo 6 caracteres';
         if (!formData.confirmPassword) newErrors.confirmPassword = 'Por favor, confirme sua senha';
         else if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'As senhas não coincidem';
+        if (!formData.phone.trim()) newErrors.phone = 'Por favor, insira seu telefone';
+        else if (!/^\(\d{2}\)\s\d{5}-\d{4}$/.test(formData.phone)) newErrors.phone = 'Formato de telefone inválido. Use (11) 99999-9999';
+        if (!formData.patientName.trim()) newErrors.patientName = 'Por favor, insira o nome do paciente';
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
@@ -81,6 +90,8 @@ const CardRegister: React.FC = () => {
                 name: formData.name,
                 email: formData.email,
                 password: formData.password,
+                phone: formData.phone,
+                patientName: formData.patientName,
             });
         } catch (error) {
             console.error(error);
@@ -205,6 +216,38 @@ const CardRegister: React.FC = () => {
                             </button>
                         </div>
                         {errors.confirmPassword && <span className="text-sm text-red-400 flex items-center gap-1">⚠️ {errors.confirmPassword}</span>}
+                    </div>
+
+                    <div className="space-y-2">
+                        <label htmlFor="phone" className="text-sm font-medium text-foreground">Telefone</label>
+                        <input
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="(11) 99999-9999"
+                            className={`w-full px-4 py-3 rounded-xl bg-background border ${errors.phone ? 'border-red-500/50 focus:border-red-500' : 'border-border focus:border-purple-500'} text-foreground placeholder-muted-foreground outline-none transition-all`}
+                            aria-invalid={!!errors.phone}
+                            required
+                        />
+                        {errors.phone && <span className="text-sm text-red-400 flex items-center gap-1">⚠️ {errors.phone}</span>}
+                    </div>
+
+                    <div className="space-y-2">
+                        <label htmlFor="patientName" className="text-sm font-medium text-foreground">Nome do Paciente</label>
+                        <input
+                            id="patientName"
+                            name="patientName"
+                            type="text"
+                            value={formData.patientName}
+                            onChange={handleChange}
+                            placeholder="Nome do paciente a ser acompanhado"
+                            className={`w-full px-4 py-3 rounded-xl bg-background border ${errors.patientName ? 'border-red-500/50 focus:border-red-500' : 'border-border focus:border-purple-500'} text-foreground placeholder-muted-foreground outline-none transition-all`}
+                            aria-invalid={!!errors.patientName}
+                            required
+                        />
+                        {errors.patientName && <span className="text-sm text-red-400 flex items-center gap-1">⚠️ {errors.patientName}</span>}
                     </div>
 
                     <button

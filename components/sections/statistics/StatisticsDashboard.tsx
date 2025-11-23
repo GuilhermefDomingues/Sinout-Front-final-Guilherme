@@ -100,7 +100,7 @@ export function StatisticsDashboard() {
             const [historyResponse, rulesResponse, patientResponse] = await Promise.all([
                 api.get(`/api/history/my-history?hours=${timeFilter}`),
                 api.get('/api/emotion-mappings/my-rules'),
-                api.get('/api/auth/me')
+                api.get('/api/users/me')
             ]);
 
             // Processamento do histórico emocional
@@ -165,15 +165,15 @@ export function StatisticsDashboard() {
              */
             const mapRuleItem = (item: ApiRuleItem): Rule => ({
                 _id: item.id,
-                id_usuario: item.userId,
-                emocao: item.emotion?.toLowerCase() || 'neutral',
-                nivel_intensidade: item.intensityLevel,
-                percentual_minimo: item.minPercentage,
-                mensagem: item.message,
-                prioridade: item.priority,
-                ativo: item.active,
-                data_criacao: item.createdAt,
-                data_atualizacao: item.updatedAt
+                userId: item.userId,
+                emotion: item.emotion?.toLowerCase() || 'neutral',
+                intensityLevel: item.intensityLevel,
+                minPercentage: item.minPercentage,
+                message: item.message,
+                priority: item.priority,
+                active: item.active,
+                createdAt: item.createdAt,
+                updatedAt: item.updatedAt
             });
 
             // Processa diferentes formatos de resposta para regras
@@ -192,13 +192,13 @@ export function StatisticsDashboard() {
             if (patientData) {
                 // Mapeia dados do paciente com fallbacks para diferentes formatos de API
                 const mappedPatient: Patient = {
-                    _id: patientData.id || patientData._id || patientData.patientId,
-                    nome: patientData.name || patientData.nome || patientData.patientName || patientData.username || patientData.email,
-                    id_cuidador: patientData.caregiverId || patientData.id_cuidador || patientData.caregiver_id || 1, // fallback
-                    data_cadastro: patientData.createdAt || patientData.data_cadastro || patientData.created_at || new Date().toISOString(),
-                    status: patientData.active !== undefined ? patientData.active : (patientData.status !== undefined ? patientData.status : true),
-                    informacoes_adicionais: patientData.additionalInfo || patientData.informacoes_adicionais || patientData.bio || null,
-                    foto_perfil: patientData.profilePicture || patientData.foto_perfil || patientData.avatar || null,
+                    _id: patientData.patientId || patientData.id || patientData._id,
+                    nome: patientData.patientName || patientData.name || patientData.nome || patientData.username || patientData.email,
+                    id_cuidador: patientData.userId || patientData.caregiverId || patientData.id_cuidador || 1, // fallback
+                    data_cadastro: patientData.createdAt || patientData.data_cadastro || new Date().toISOString(),
+                    status: true, // Default to true as status field was removed
+                    informacoes_adicionais: patientData.additionalInfo || patientData.informacoes_adicionais || null,
+                    foto_perfil: patientData.profilePhoto || patientData.profilePicture || patientData.foto_perfil || null,
                     criado_por: patientData.createdBy || patientData.criado_por || 'user'
                 };
                 setPatient(mappedPatient);

@@ -50,7 +50,7 @@ export function MetricsGrid({ history, rules }: MetricsGridProps) {
         : 0;
 
     // Conta quantas regras estão ativas
-    const activeRules = rules.filter(r => r.ativo).length;
+    const activeRules = rules.filter(r => r.active).length;
 
     // Analisa os sentimentos predominantes no histórico de hoje
     const sentimentCounts = todaysHistory.reduce((acc, item) => {

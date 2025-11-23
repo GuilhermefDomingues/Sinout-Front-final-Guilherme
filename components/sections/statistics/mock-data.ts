@@ -22,7 +22,7 @@ import { HistoryItem, Patient, Rule } from "./types";
  * básicas necessárias para o funcionamento do dashboard.
  */
 export const mockPatient: Patient = {
-    _id: 2,
+    _id: "2",
     nome: "Private Patient",
     id_cuidador: 11,
     data_cadastro: "2025-11-19T19:04:58.969+00:00",
@@ -45,39 +45,39 @@ export const mockPatient: Patient = {
 export const mockRules: Rule[] = [
     {
         _id: "691de9f5404192217234036e",
-        id_usuario: 1,
-        emocao: "neutral",
-        nivel_intensidade: "superior",
-        percentual_minimo: 50,
-        mensagem: "Estou me sentindo calmo e focado.",
-        prioridade: 1,
-        ativo: true,
-        data_criacao: "2025-11-19T16:01:57.353+00:00",
-        data_atualizacao: null
+        userId: 1,
+        emotion: "neutral",
+        intensityLevel: "superior",
+        minPercentage: 50,
+        message: "Estou me sentindo calmo e focado.",
+        priority: 1,
+        active: true,
+        createdAt: "2025-11-19T16:01:57.353+00:00",
+        updatedAt: null
     },
     {
         _id: "691de9f5404192217234036f",
-        id_usuario: 1,
-        emocao: "happy",
-        nivel_intensidade: "superior",
-        percentual_minimo: 70,
-        mensagem: "Estou muito feliz!",
-        prioridade: 2,
-        ativo: true,
-        data_criacao: "2025-11-20T10:00:00.000+00:00",
-        data_atualizacao: null
+        userId: 1,
+        emotion: "happy",
+        intensityLevel: "superior",
+        minPercentage: 70,
+        message: "Estou muito feliz!",
+        priority: 2,
+        active: true,
+        createdAt: "2025-11-20T10:00:00.000+00:00",
+        updatedAt: null
     },
     {
         _id: "691de9f54041922172340370",
-        id_usuario: 1,
-        emocao: "sad",
-        nivel_intensidade: "superior",
-        percentual_minimo: 60,
-        mensagem: "Preciso de atenção.",
-        prioridade: 2,
-        ativo: true,
-        data_criacao: "2025-11-20T11:00:00.000+00:00",
-        data_atualizacao: null
+        userId: 1,
+        emotion: "sad",
+        intensityLevel: "superior",
+        minPercentage: 60,
+        message: "Preciso de atenção.",
+        priority: 2,
+        active: true,
+        createdAt: "2025-11-20T11:00:00.000+00:00",
+        updatedAt: null
     }
 ];
 

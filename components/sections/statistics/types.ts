@@ -16,20 +16,22 @@ export interface HistoryItem {
 
 export interface Rule {
     _id: string;
-    id_usuario: number;
-    emocao: string;
-    nivel_intensidade: string;
-    percentual_minimo: number;
-    mensagem: string;
-    prioridade: number;
-    ativo: boolean;
-    data_criacao: string;
-    data_atualizacao: string | null;
+    userId?: number;
+    emotion: string;
+    intensityLevel: string;
+    minPercentage: number;
+    message: string;
+    priority: number;
+    active?: boolean;
+    createdAt?: string;
+    updatedAt?: string | null;
 }
 
 export interface Patient {
-    _id: number;
+    _id: string;
     nome: string;
+    idade?: number;
+    diagnostico?: string;
     id_cuidador: number;
     data_cadastro: string;
     status: boolean;

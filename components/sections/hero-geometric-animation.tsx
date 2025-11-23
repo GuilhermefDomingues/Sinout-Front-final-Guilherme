@@ -3,14 +3,13 @@
 /**
  * Componente HeroGeometricAnimation
  *
- * Animação de fundo interativa para seções hero com elementos geométricos
- * que respondem ao movimento do mouse. Cria uma atmosfera visual dinâmica
+ * Animação de fundo estática para seções hero com elementos geométricos
+ * e formas visuais decorativas. Cria uma atmosfera visual atrativa
  * com orbes de gradiente, formas geométricas animadas e elementos abstratos
  * que simulam código flutuante.
  *
  * Funcionalidades principais:
- * - Rastreamento de movimento do mouse em tempo real
- * - Orbes de gradiente com movimento parallax responsivo
+ * - Orbes de gradiente estáticos com efeitos de blur
  * - Formas geométricas SVG animadas (hexágonos, círculos)
  * - Grade de linhas animadas com movimento orgânico
  * - Elementos de código abstratos flutuantes
@@ -19,57 +18,35 @@
  */
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 /**
  * Componente HeroGeometricAnimation
- * Renderiza uma animação de fundo interativa com elementos geométricos
- * que seguem o movimento do cursor do mouse
+ * Renderiza uma animação de fundo estática com elementos geométricos
+ * decorativos e formas visuais atrativas
  */
 export const HeroGeometricAnimation = () => {
-    // Estado para armazenar a posição normalizada do mouse (0-1)
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    // Removido o estado e efeito de rastreamento do mouse para eliminar o parallax inconsistente
+    // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-    /**
-     * Efeito para rastrear o movimento do mouse
-     * Converte coordenadas absolutas em coordenadas normalizadas
-     */
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            setMousePosition({
-                x: e.clientX / window.innerWidth,
-                y: e.clientY / window.innerHeight,
-            });
-        };
+    // Removido o efeito que rastreava o movimento do mouse
+    // useEffect(() => {
+    //     const handleMouseMove = (e: MouseEvent) => {
+    //         setMousePosition({
+    //             x: e.clientX / window.innerWidth,
+    //             y: e.clientY / window.innerHeight,
+    //         });
+    //     };
 
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
+    //     window.addEventListener("mousemove", handleMouseMove);
+    //     return () => window.removeEventListener("mousemove", handleMouseMove);
+    // }, []);
 
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-            {/* Orbes de gradiente animados que seguem o mouse */}
-            <motion.div
-                animate={{
-                    x: mousePosition.x * 20,
-                    y: mousePosition.y * 20,
-                }}
-                className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-[100px] mix-blend-screen"
-            />
-            <motion.div
-                animate={{
-                    x: mousePosition.x * -20,
-                    y: mousePosition.y * -20,
-                }}
-                className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-[100px] mix-blend-screen"
-            />
-            <motion.div
-                animate={{
-                    x: mousePosition.x * 10,
-                    y: mousePosition.y * -10,
-                }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/20 rounded-full blur-[120px] mix-blend-screen"
-            />
+            {/* Orbes de gradiente estáticos (removido movimento parallax) */}
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-[100px] mix-blend-screen" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-[100px] mix-blend-screen" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/20 rounded-full blur-[120px] mix-blend-screen" />
 
             {/* Formas geométricas SVG com animações complexas */}
             <svg className="absolute inset-0 w-full h-full opacity-30">
@@ -99,7 +76,6 @@ export const HeroGeometricAnimation = () => {
                         repeat: Infinity,
                         ease: "linear"
                     }}
-                    style={{ x: mousePosition.x * 30, y: mousePosition.y * 30 }}
                 />
 
                 {/* Círculo com contorno tracejado em rotação */}
