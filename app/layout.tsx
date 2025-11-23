@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { ContextMenu } from "@/components/ui/ContextMenu";
 import { AuthProvider } from "@/context/AuthContext";
+import { CookieConsent } from "@/components/ui/CookieConsent";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,6 +39,7 @@ export default function RootLayout({
         >
           <AuthProvider>
             <ContextMenu />
+            <CookieConsent />
             {children}
           </AuthProvider>
         </ThemeProvider>

@@ -32,7 +32,7 @@ export default function Termos() {
                         <section>
                             <h2 className="text-2xl font-semibold text-foreground border-b-2 border-primary pb-1 mb-4">2. Descrição do Serviço</h2>
                             <p className="text-muted-foreground leading-relaxed">
-                                O Sinout é uma plataforma de cuidados assistidos que utiliza inteligência artificial para análise emocional através de reconhecimento facial. Nosso objetivo é auxiliar cuidadores e profissionais de saúde no monitoramento emocional de pacientes.
+                                O Sinout é uma plataforma de cuidados assistidos que utiliza inteligência artificial para análise emocional através de reconhecimento facial. Nosso objetivo é auxiliar cuidadores e profissionais de saúde na comunicação com os pacientes.
                             </p>
                         </section>
 

@@ -97,6 +97,8 @@ export function ModernMenu({
         const isEquipe = pathname === "/equipe";
         const isEstatistica = pathname === "/estatistica";
         const isSobre = pathname === "/sobre";
+        const isPrivacidade = pathname === "/privacidade";
+        const isTermos = pathname === "/termos";
 
         if (isHome) {
             return [
@@ -129,6 +131,14 @@ export function ModernMenu({
                 { label: "Planos", href: "/#pagamento" },
                 { label: "Estatística", href: "/estatistica" },
                 { label: "Central de Ajuda", href: "/ajuda" },
+            ];
+        } else if (isPrivacidade || isTermos) {
+            return [
+                { label: "Home", href: "/" },
+                { label: "Sobre", href: "/sobre" },
+                { label: "Equipe", href: "/equipe" },
+                { label: "Planos", href: "/#pagamento" },
+                { label: "Estatística", href: "/estatistica" },
             ];
         } else {
             // Para outras páginas, manter padrão ou ajustar conforme necessário
