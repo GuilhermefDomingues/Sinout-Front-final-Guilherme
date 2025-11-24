@@ -18,6 +18,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ModernMenu } from "@/components/layout/Header";
 import { OrbitalAnimation } from "@/components/sections/sobre/OrbitalAnimation";
+import CustomCursor from "@/components/ui/pointer";
 
 // Custom Icons to replace Lucide
 const CustomIcons = {
@@ -422,6 +423,7 @@ export default function SobrePage() {
                     </motion.div>
                 </div>
             </section>
+            <CustomCursor />
         </div>
     );
 }

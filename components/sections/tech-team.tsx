@@ -96,7 +96,7 @@ const team: TeamMember[] = [
     },
     {
         name: "Guilherme França",
-        role: "Front End & Marketing",
+        role: "Full Stack & Marketing",
         handle: "@GuilhermefDomingues",
         avatar: "/Guilherme.svg",
         tags: ["React", "Next.js", "TypeScript"],

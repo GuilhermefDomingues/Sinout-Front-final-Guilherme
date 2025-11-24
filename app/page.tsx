@@ -11,6 +11,7 @@ import { VitePricing } from "@/components/sections/vite-pricing";
 import { ViteDemoSection } from "@/components/sections/vite-demo-section";
 import { ViteContactSection } from "@/components/sections/vite-contact-section";
 import FacialRecognitionAnimation from "@/components/sections/FacialRecognitionAnimation";
+import CustomCursor  from "@/components/ui/pointer";
 
 const Particles = dynamic(() => import('@/components/ui/Particles'), { ssr: false });
 const Footer7 = dynamic(() => import("@/components/layout/Footer").then(mod => mod.Footer7));
@@ -113,6 +114,7 @@ export default function Home() {
 
       {/* Rodapé */}
       < Footer7 className="mt-auto border-t border-border bg-muted/30" />
+    < CustomCursor />
     </div >
   );
 }

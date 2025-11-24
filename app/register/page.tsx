@@ -1,4 +1,5 @@
 import CardRegister from "@/components/forms/auth/CardRegister";
+import CustomCursor  from "@/components/ui/pointer";
 
 /**
  * Página de Registro de Novos Usuários
@@ -39,5 +40,11 @@ import CardRegister from "@/components/forms/auth/CardRegister";
  * @returns {JSX.Element} Página completa com formulário de registro
  */
 export default function RegisterPage() {
-    return <CardRegister />;
+    return(
+        <>
+            <CardRegister />;
+            <CustomCursor />
+        </>
+    )
+    
 }

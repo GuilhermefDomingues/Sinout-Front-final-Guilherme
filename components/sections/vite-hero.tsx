@@ -49,8 +49,7 @@ export function ViteHero() {
                             transition={{ duration: 0.5 }}
                             className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400"
                         >
-                            Transformando<br />
-                            Conceitos em Produtos
+                            Nossa Equipe por Trás da Inclusão
                         </motion.h1>
 
                         {/* Descrição com animação atrasada */}
@@ -60,7 +59,7 @@ export function ViteHero() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className="text-lg md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto md:mx-0"
                         >
-                            Conheça como nossa equipe transforma ideias inovadoras em soluções tecnológicas reais e acessíveis.
+                           Profissionais dedicados a desenvolver soluções que ampliam a autonomia e a comunicação de pessoas com limitações motoras.
                         </motion.p>
 
                         {/* (CTA buttons intentionally removed) */}

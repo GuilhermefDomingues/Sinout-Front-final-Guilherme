@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 import { ModernMenu } from "@/components/layout/Header";
+import CustomCursor from '@/components/ui/pointer';
 
 const Footer7 = dynamic(() => import("@/components/layout/Footer").then(mod => mod.Footer7));
 
@@ -178,6 +179,7 @@ export default function Termos() {
             </main>
 
             <Footer7 className="mt-auto border-t border-border bg-muted/30" />
+            <CustomCursor />
         </div>
     );
 }
