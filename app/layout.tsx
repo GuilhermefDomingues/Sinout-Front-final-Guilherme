@@ -31,13 +31,11 @@ export const metadata: Metadata = {
     "tecnologia assistiva",
     "deficiência motora",
     "acessibilidade digital",
-    "AAC",
     "comunicação alternativa",
     "Sinout",
     "plataforma inclusiva",
     "Tecnologia para PcD",
     "comunicação não verbal",
-    "eye tracking",
     "controle por movimento",
     "inclusão digital",
   ],
@@ -87,6 +85,10 @@ export default function RootLayout({
             {children}
           </AuthProvider>
         </ThemeProvider>
+       
+
+        
+
 
         {/* Chatbot Chatling */}
         <Script

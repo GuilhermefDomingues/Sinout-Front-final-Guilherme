@@ -30,7 +30,7 @@ export function MethodologyModal({ isOpen, onClose, trigger }: MethodologyModalP
                             <p className="text-muted-foreground leading-relaxed">
                                 No Sinout, adotamos metodologias ágeis para garantir entregas contínuas de valor,
                                 flexibilidade para mudanças e foco total nas necessidades dos nossos usuários.
-                                Utilizamos o framework Scrum para organizar nosso trabalho em ciclos iterativos e incrementais.
+                                Utilizamos a Metodologia Scrum para organizar nosso trabalho em ciclos iterativos e incrementais.
                             </p>
                         </section>
 
@@ -138,7 +138,7 @@ export function MethodologyModal({ isOpen, onClose, trigger }: MethodologyModalP
                         <p className="text-muted-foreground leading-relaxed">
                             No Sinout, adotamos metodologias ágeis para garantir entregas contínuas de valor,
                             flexibilidade para mudanças e foco total nas necessidades dos nossos usuários.
-                            Utilizamos o framework Scrum para organizar nosso trabalho em ciclos iterativos e incrementais.
+                            Utilizamos a Metodologia Scrum para organizar nosso trabalho em ciclos iterativos e incrementais.
                         </p>
                     </section>
 
