@@ -4,8 +4,9 @@ import { useRouter } from 'next/navigation';
 import type { FormEvent, ChangeEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Eye, EyeOff, ArrowLeft, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, ArrowLeft, Loader2, CheckCircle2, XCircle } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
+
 
 interface LoginFormData {
     email: string;
@@ -15,6 +16,14 @@ interface LoginFormData {
 interface FormErrors {
     email?: string;
     password?: string;
+}
+
+interface PasswordValidation {
+    minLength: boolean;
+    hasUpperCase: boolean;
+    hasLowerCase: boolean;
+    hasNumber: boolean;
+    hasSpecialChar: boolean;
 }
 
 const CardLogin: React.FC = () => {
@@ -27,6 +36,7 @@ const CardLogin: React.FC = () => {
     const [errors, setErrors] = useState<FormErrors>({});
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showPasswordRequirements, setShowPasswordRequirements] = useState<boolean>(false);
 
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
@@ -36,6 +46,22 @@ const CardLogin: React.FC = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     };
+
+    const validatePasswordStrength = (password: string): PasswordValidation => {
+        return {
+            minLength: password.length >= 8,
+            hasUpperCase: /[A-Z]/.test(password),
+            hasLowerCase: /[a-z]/.test(password),
+            hasNumber: /[0-9]/.test(password),
+            hasSpecialChar: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password),
+        };
+    };
+
+    const isPasswordValid = (validation: PasswordValidation): boolean => {
+        return Object.values(validation).every(Boolean);
+    };
+
+    const passwordValidation = validatePasswordStrength(formData.password);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -52,25 +78,51 @@ const CardLogin: React.FC = () => {
         }
     };
 
+    const handlePasswordFocus = () => {
+        setShowPasswordRequirements(true);
+    };
+
+    const handlePasswordBlur = () => {
+        // Mantém visível se houver erro ou se a senha não estiver vazia
+        if (!formData.password) {
+            setShowPasswordRequirements(false);
+        }
+    };
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const newErrors: FormErrors = {};
 
+        // Validação de email
         if (!formData.email) {
             newErrors.email = 'Por favor, insira seu e-mail';
         } else if (!validateEmail(formData.email)) {
-            newErrors.email = 'E-mail inválido';
+            newErrors.email = 'E-mail inválido. Use o formato: exemplo@email.com';
         }
 
+        // Validação de senha
         if (!formData.password) {
             newErrors.password = 'Por favor, insira sua senha';
-        } else if (formData.password.length < 6) {
-            newErrors.password = 'A senha deve ter no mínimo 6 caracteres';
+        } else {
+            const validation = validatePasswordStrength(formData.password);
+            
+            if (!validation.minLength) {
+                newErrors.password = 'A senha deve ter no mínimo 8 caracteres';
+            } else if (!validation.hasUpperCase) {
+                newErrors.password = 'A senha deve conter pelo menos uma letra maiúscula';
+            } else if (!validation.hasLowerCase) {
+                newErrors.password = 'A senha deve conter pelo menos uma letra minúscula';
+            } else if (!validation.hasNumber) {
+                newErrors.password = 'A senha deve conter pelo menos um número';
+            } else if (!validation.hasSpecialChar) {
+                newErrors.password = 'A senha deve conter pelo menos um caractere especial (!@#$%^&*...)';
+            }
         }
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
+            setShowPasswordRequirements(true);
             if (newErrors.email) {
                 emailRef.current?.focus();
             } else if (newErrors.password) {
@@ -91,7 +143,18 @@ const CardLogin: React.FC = () => {
         }
     };
 
-    return (
+    const RequirementItem = ({ met, text }: { met: boolean; text: string }) => (
+        <div className={`flex items-center gap-2 text-xs transition-colors ${met ? 'text-green-400' : 'text-muted-foreground'}`}>
+            {met ? (
+                <CheckCircle2 className="w-3.5 h-3.5" />
+            ) : (
+                <XCircle className="w-3.5 h-3.5" />
+            )}
+            <span>{text}</span>
+        </div>
+    );
+
+   return (
         <div className="min-h-screen flex items-center justify-center p-6 bg-background relative overflow-hidden">
             {/* Background Gradients */}
             <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-purple-500/20 blur-[120px] rounded-full pointer-events-none" />
@@ -110,11 +173,7 @@ const CardLogin: React.FC = () => {
             <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-2xl relative z-10">
                 {/* Logo */}
                 <div className="flex justify-center mb-8">
-                    <div className="relative w-16 h-16">
-                        {/* Using a placeholder or the copied logo if it works with dark theme. 
-                 If Logo.svg is dark text, it might be invisible. 
-                 I'll assume it needs a background or filter if it's dark. 
-                 For now, I'll just render it. */}
+                    <div className="relative w-24 h-24">
                         <Image
                             src="/Logo.svg"
                             alt="Logo"
@@ -162,6 +221,8 @@ const CardLogin: React.FC = () => {
                                 type={showPassword ? 'text' : 'password'}
                                 value={formData.password}
                                 onChange={handleInputChange}
+                                onFocus={handlePasswordFocus}
+                                onBlur={handlePasswordBlur}
                                 placeholder="••••••••"
                                 className={`w-full px-4 py-3 rounded-xl bg-background border ${errors.password ? 'border-red-500/50 focus:border-red-500' : 'border-border focus:border-purple-500'} text-foreground placeholder-muted-foreground outline-none transition-all pr-12`}
                                 aria-invalid={!!errors.password}
@@ -176,6 +237,19 @@ const CardLogin: React.FC = () => {
                                 {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                             </button>
                         </div>
+                        
+                        {/* Requisitos de senha */}
+                        {showPasswordRequirements && formData.password && (
+                            <div className="mt-3 p-3 rounded-lg bg-muted/50 border border-border space-y-1.5">
+                                <p className="text-xs font-medium text-foreground mb-2">Requisitos da senha:</p>
+                                <RequirementItem met={passwordValidation.minLength} text="Mínimo de 8 caracteres" />
+                                <RequirementItem met={passwordValidation.hasUpperCase} text="Uma letra maiúscula (A-Z)" />
+                                <RequirementItem met={passwordValidation.hasLowerCase} text="Uma letra minúscula (a-z)" />
+                                <RequirementItem met={passwordValidation.hasNumber} text="Um número (0-9)" />
+                                <RequirementItem met={passwordValidation.hasSpecialChar} text="Um caractere especial (!@#$%...)" />
+                            </div>
+                        )}
+                        
                         {errors.password && (
                             <span className="text-sm text-red-400 flex items-center gap-1">
                                 ⚠️ {errors.password}

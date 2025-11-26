@@ -6,6 +6,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import Script from "next/script";
 import "./globals.css";
+import { VLibras } from "@/components/Vlibras"; // ✅ aqui
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,14 +19,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  // Título e descrição — foco em clareza e impacto
   title: {
     template: "%s | Sinout",
     default: "Sinout – Comunicação Assistiva com Tecnologia Inclusiva",
   },
   description:
     "Sinout é uma plataforma de comunicação assistiva desenvolvida para pessoas com limitação motora. Transformando micro-expressões em voz, texto com dignidade, autonomia e inclusão.",
-  
   keywords: [
     "comunicação assistiva",
     "tecnologia assistiva",
@@ -39,13 +38,9 @@ export const metadata: Metadata = {
     "controle por movimento",
     "inclusão digital",
   ],
-
-  // 👥 Autores e responsáveis
   authors: [{ name: "Equipe Sinout", url: "https://sinout.com.br" }],
   creator: "Sinout Tecnologia Inclusiva",
   publisher: "Sinout",
-
-  // 🤖 Robôs (SEO)
   robots: {
     index: true,
     follow: true,
@@ -57,11 +52,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
 };
-
-
-
 
 export default function RootLayout({
   children,
@@ -71,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
@@ -83,12 +75,9 @@ export default function RootLayout({
             <ContextMenu />
             <CookieConsent />
             {children}
+        <VLibras />
           </AuthProvider>
         </ThemeProvider>
-       
-
-        
-
 
         {/* Chatbot Chatling */}
         <Script
@@ -111,6 +100,8 @@ export default function RootLayout({
           strategy="lazyOnload"
           defer
         />
+
+        {/* VLibras aqui */}
       </body>
     </html>
   );

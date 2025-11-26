@@ -11,6 +11,7 @@ import { FrameworkLogos } from "@/components/sections/framework-logos";
 import { CodeComparison } from "@/components/sections/code-comparison";
 import { TechTeam } from "@/components/sections/tech-team";
 import CustomCursor  from "@/components/ui/pointer";
+import { VLibras } from '@/components/Vlibras';
 // Removed local CTAs (buttons) per request — content simplified
 
 const Footer7 = dynamic(() => import("@/components/layout/Footer").then(mod => mod.Footer7));
@@ -129,6 +130,7 @@ export default function TeamPage() {
             {/* Rodapé */}
             <Footer7 className="mt-auto border-t border-border bg-muted/30" />
             <CustomCursor />
+            <VLibras />
         </div>
     );
 }

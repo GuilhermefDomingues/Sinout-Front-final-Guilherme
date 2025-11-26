@@ -137,9 +137,7 @@ export const Footer7 = ({ className = "" }: { className?: string }) => {
           >
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span>© {currentYear} Sinout. Feito com</span>
-                <Heart className="w-4 h-4 text-red-400 fill-current" />
-                <span>para transformar vidas.</span>
+                <span>© {currentYear} Sinout.</span>
               </div>
 
               <div className="flex gap-6 text-sm">
