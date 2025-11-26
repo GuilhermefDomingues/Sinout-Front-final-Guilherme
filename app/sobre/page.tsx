@@ -22,12 +22,12 @@ import CustomCursor from "@/components/ui/pointer";
 
 // Custom Icons to replace Lucide
 const CustomIcons = {
-    Heart: (props: any) => (
+    Heart: (props: React.SVGProps<SVGSVGElement>) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
         </svg>
     ),
-    Users: (props: any) => (
+    Users: (props: React.SVGProps<SVGSVGElement>) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
             <circle cx="9" cy="7" r="4" />
@@ -35,20 +35,20 @@ const CustomIcons = {
             <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
     ),
-    Target: (props: any) => (
+    Target: (props: React.SVGProps<SVGSVGElement>) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
             <circle cx="12" cy="12" r="10" />
             <circle cx="12" cy="12" r="6" />
             <circle cx="12" cy="12" r="2" />
         </svg>
     ),
-    Code: (props: any) => (
+    Code: (props: React.SVGProps<SVGSVGElement>) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
             <polyline points="16 18 22 12 16 6" />
             <polyline points="8 6 2 12 8 18" />
         </svg>
     ),
-    Rocket: (props: any) => (
+    Rocket: (props: React.SVGProps<SVGSVGElement>) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
             <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
             <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
@@ -56,14 +56,14 @@ const CustomIcons = {
             <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
         </svg>
     ),
-    Lightbulb: (props: any) => (
+    Lightbulb: (props: React.SVGProps<SVGSVGElement>) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
             <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
             <path d="M9 18h6" />
             <path d="M10 22h4" />
         </svg>
     ),
-    ArrowRight: (props: any) => (
+    ArrowRight: (props: React.SVGProps<SVGSVGElement>) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
@@ -226,206 +226,126 @@ export default function SobrePage() {
                         </div>
 
                         {/* Título principal com gradiente */}
-                        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-purple-600">
+                        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-orange-500 to-purple-600 animate-gradient">
                             Nossa História
                         </h1>
 
-                        {/* Subtítulo descritivo */}
-                        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                            Uma jornada de empatia que se transformou em inovação tecnológica.
-                            Descubra como o Sinout nasceu da necessidade de conectar pessoas.
+                        <p className="text-xl text-muted-foreground leading-relaxed mb-12 max-w-2xl mx-auto">
+                            Transformando o cuidado com tecnologia e empatia. Conheça a jornada da Sinout,
+                            desde a primeira linha de código até impactar vidas.
                         </p>
                     </motion.div>
                 </div>
             </section>
 
-            {/* Seção da Jornada - Timeline interativa */}
+            {/* Seção da Timeline - Jornada da empresa */}
             <section className="py-20 relative">
                 <div className="container mx-auto px-4">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                            Da Empatia à Inovação
-                        </h2>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                            Veja como uma simples ideia de ajudar se transformou em uma solução tecnológica completa
-                        </p>
-                    </motion.div>
+                    <div className="max-w-4xl mx-auto">
+                        {/* Passo 1: O Início */}
+                        <JourneyStep
+                            step={1}
+                            title="O Início"
+                            description="Tudo começou com uma ideia simples: usar a tecnologia para humanizar o cuidado. Em 2023, nossa equipe se reuniu para criar o primeiro protótipo do Sinout, focado em reconhecimento facial para pacientes com dificuldades de comunicação."
+                            icon={CustomIcons.Lightbulb}
+                            color="bg-orange-500"
+                            delay={0.2}
+                        />
 
-                    {/* Container da timeline com passos da jornada */}
-                    <div className="max-w-4xl mx-auto relative">
-                        {/* Linha central da timeline */}
-                        <div className="absolute left-28 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-300 hidden md:block opacity-30 z-0" />
+                        {/* Passo 2: Desenvolvimento */}
+                        <JourneyStep
+                            step={2}
+                            title="Desenvolvimento Intenso"
+                            description="Foram meses de codificação, testes e aprendizado. Integramos IA avançada, criamos interfaces intuitivas e refinamos cada detalhe para garantir que a tecnologia servisse às pessoas, e não o contrário."
+                            icon={CustomIcons.Code}
+                            color="bg-purple-600"
+                            delay={0.4}
+                        />
 
-                        <div className="space-y-16">
-                            {/* Passo 1: Nascimento da ideia */}
-                            <JourneyStep
-                                step={1}
-                                title="O Nascimento da Ideia"
-                                description="Tudo começou com uma história real. Uma família enfrentando as barreiras da comunicação não-verbal. Vimos a necessidade urgente de criar uma ponte entre o mundo digital e as expressões humanas, nascida da empatia e solidariedade."
-                                icon={CustomIcons.Heart}
-                                color="bg-purple-600"
-                                delay={0.1}
-                            />
+                        {/* Passo 3: Lançamento */}
+                        <JourneyStep
+                            step={3}
+                            title="Lançamento Oficial"
+                            description="O Sinout foi lançado para o mundo. Com feedback positivo de cuidadores e profissionais de saúde, validamos nossa missão e começamos a expandir nossas funcionalidades para atender ainda mais necessidades."
+                            icon={CustomIcons.Rocket}
+                            color="bg-orange-500"
+                            delay={0.6}
+                        />
 
-                            {/* Passo 2: Pesquisa e empatia profunda */}
-                            <JourneyStep
-                                step={2}
-                                title="Pesquisa e Empatia"
-                                description="Mergulhamos no universo das pessoas com deficiência motora e suas famílias. Entrevistas, observações e imersão nos permitiram entender não apenas os desafios técnicos, mas as emoções, frustrações e esperanças de cada pessoa."
-                                icon={CustomIcons.Users}
-                                color="bg-orange-500"
-                                delay={0.2}
-                            />
+                        {/* Passo 4: O Futuro */}
+                        <JourneyStep
+                            step={4}
+                            title="Olhando para o Futuro"
+                            description="Não paramos por aqui. Estamos constantemente inovando, buscando novas formas de aplicar IA e tecnologia para melhorar a qualidade de vida de pacientes e facilitar o trabalho de quem cuida."
+                            icon={CustomIcons.Target}
+                            color="bg-purple-600"
+                            delay={0.8}
+                        />
+                    </div>
+                </div>
+            </section>
 
-                            {/* Passo 3: Planejamento estruturado */}
-                            <JourneyStep
-                                step={3}
-                                title="Planejamento Estruturado"
-                                description="Desenvolvemos um plano abrangente que incluía pesquisa de tecnologias emergentes, arquitetura de sistema escalável, e uma estratégia de implementação realista e sustentável."
-                                icon={CustomIcons.Target}
-                                color="bg-purple-500"
-                                delay={0.3}
-                            />
+            {/* Seção de Valores e Missão */}
+            <section className="py-20 bg-muted/30 relative overflow-hidden">
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 className="text-4xl font-bold mb-6 text-foreground">Nossa Missão</h2>
+                            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                                Acreditamos que a tecnologia deve ser uma ponte, não uma barreira. Nossa missão é desenvolver soluções que tragam clareza, empatia e eficiência para o cuidado de saúde, permitindo que profissionais se concentrem no que realmente importa: as pessoas.
+                            </p>
 
-                            {/* Passo 4: Desenvolvimento técnico */}
-                            <JourneyStep
-                                step={4}
-                                title="Desenvolvimento Técnico"
-                                description="Nossa equipe multidisciplinar começou a construir. Algoritmos de reconhecimento facial, interfaces intuitivas, foram desenvolvidos com rigor técnico e atenção aos detalhes."
-                                icon={CustomIcons.Code}
-                                color="bg-orange-600"
-                                delay={0.4}
-                            />
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div className="bg-background p-6 rounded-xl shadow-sm border border-border">
+                                    <CustomIcons.Heart className="w-8 h-8 text-orange-500 mb-4" />
+                                    <h3 className="font-bold text-lg mb-2">Empatia</h3>
+                                    <p className="text-sm text-muted-foreground">Tecnologia com coração, focada no bem-estar humano.</p>
+                                </div>
+                                <div className="bg-background p-6 rounded-xl shadow-sm border border-border">
+                                    <CustomIcons.Users className="w-8 h-8 text-purple-600 mb-4" />
+                                    <h3 className="font-bold text-lg mb-2">Colaboração</h3>
+                                    <p className="text-sm text-muted-foreground">Trabalhamos juntos para criar soluções melhores.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                            {/* Passo 5: Lançamento e impacto */}
-                            <JourneyStep
-                                step={5}
-                                title="Lançamento e Impacto"
-                                description="O Sinout deixou de ser uma ideia e entrou na vida real. Cada usuário que consegue se comunicar, cada família que se reconecta, cada barreira que é quebrada, valida nossa missão e nos impulsiona a continuar inovando."
-                                icon={CustomIcons.Rocket}
-                                color="bg-purple-700"
-                                delay={0.5}
-                            />
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-purple-600 rounded-2xl blur-2xl opacity-20 transform rotate-3" />
+                            <div className="bg-background border border-border rounded-2xl p-8 relative shadow-xl">
+                                <h3 className="text-2xl font-bold mb-6">Por que Sinout?</h3>
+                                <ul className="space-y-4">
+                                    {[
+                                        "Inovação constante em IA e reconhecimento facial",
+                                        "Design focado na experiência do usuário",
+                                        "Compromisso com a privacidade e segurança",
+                                        "Suporte dedicado e próximo dos clientes"
+                                    ].map((item, index) => (
+                                        <li key={index} className="flex items-start gap-3">
+                                            <div className="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                <svg className="w-4 h-4 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                            <span className="text-muted-foreground">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <div className="mt-8 pt-8 border-t border-border">
+                                    <Link
+                                        href="/contato"
+                                        className="inline-flex items-center justify-center w-full py-3 px-6 bg-foreground text-background rounded-lg font-medium hover:opacity-90 transition-opacity"
+                                    >
+                                        Entre em contato conosco
+                                        <CustomIcons.ArrowRight className="w-4 h-4 ml-2" />
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Seção de Valores - Apresentação dos princípios fundamentais */}
-            <section className="py-20 bg-muted/20">
-                <div className="container mx-auto px-4">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                            Nossos Valores
-                        </h2>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                            Princípios que guiam cada decisão e cada linha de código
-                        </p>
-                    </motion.div>
-
-                    {/* Grid de valores com animações */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        {[
-                            {
-                                title: "Empatia",
-                                description: "Cada recurso é desenvolvido pensando primeiro nas pessoas, não na tecnologia.",
-                                icon: CustomIcons.Heart,
-                                color: "from-purple-600 to-purple-500"
-                            },
-                            {
-                                title: "Inovação",
-                                description: "Tecnologia de ponta deve estar ao alcance de todos, independente da condição financeira.",
-                                icon: CustomIcons.Lightbulb,
-                                color: "from-orange-500 to-orange-400"
-                            },
-                            {
-                                title: "Impacto",
-                                description: "Buscamos mudanças reais e duradouras na vida das pessoas que atendemos.",
-                                icon: CustomIcons.Target,
-                                color: "from-purple-500 to-orange-500"
-                            }
-                        ].map((value, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.2 }}
-                                className="text-center p-8 rounded-2xl bg-card border border-border hover:border-purple-500/50 transition-all duration-300"
-                            >
-                                {/* Elemento flutuante com ícone animado */}
-                                <FloatingElement delay={index * 0.5}>
-                                    <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r ${value.color} flex items-center justify-center shadow-lg`}>
-                                        <value.icon className="w-8 h-8 text-white" />
-                                    </div>
-                                </FloatingElement>
-
-                                {/* Conteúdo do valor */}
-                                <h3 className="text-xl font-bold text-foreground mb-4">{value.title}</h3>
-                                <p className="text-muted-foreground">{value.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Seção Call-to-Action - Engajamento do usuário */}
-            <section className="py-20">
-                <div className="container mx-auto px-4">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="text-center max-w-4xl mx-auto"
-                    >
-                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                            Faça Parte Desta História
-                        </h2>
-                        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                            Junte-se a nós nesta missão de transformar vidas através da tecnologia
-                        </p>
-
-                        {/* Botões de ação */}
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                            {/* Botão principal para planos */}
-                            <Link href="/#pricing">
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg shadow-lg shadow-purple-500/25 transition-all flex items-center gap-2"
-                                >
-                                    Conheça Nossos Planos
-                                    <CustomIcons.ArrowRight className="w-5 h-5" />
-                                </motion.button>
-                            </Link>
-
-                            {/* Botão secundário para equipe */}
-                            <Link href="/equipe">
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="px-8 py-4 rounded-full bg-card hover:bg-card/80 border border-border text-foreground font-medium text-lg transition-all"
-                                >
-                                    Conheça Nossa Equipe
-                                </motion.button>
-                            </Link>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
             <CustomCursor />
         </div>
     );

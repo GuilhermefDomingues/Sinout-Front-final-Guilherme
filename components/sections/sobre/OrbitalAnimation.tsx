@@ -120,7 +120,8 @@ export function OrbitalAnimation({ size = 'lg', autoPlay = true }: OrbitalAnimat
 
     // Handle client-side mounting to avoid hydration mismatch
     useEffect(() => {
-        setMounted(true);
+        const timer = setTimeout(() => setMounted(true), 0);
+        return () => clearTimeout(timer);
     }, []);
 
     // Animation sequence

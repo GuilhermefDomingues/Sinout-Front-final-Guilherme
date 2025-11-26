@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, Home as IconHome, Info as IconInfo, Layers as IconLayers, Mail as IconMail, Github as IconGithub, Linkedin as IconLinkedin, Twitter as IconTwitter, MonitorCog as IconMonitor, Sun as IconSun, Moon as IconMoon, BarChart3 as IconBarChart, HelpCircle as IconHelp, Settings as IconSettings, CreditCard as IconCreditCard, User, LogOut, BarChart } from "lucide-react";
+import { Menu, Home as IconHome, Info as IconInfo, Github as IconGithub, Linkedin as IconLinkedin, Twitter as IconTwitter, MonitorCog as IconMonitor, Sun as IconSun, Moon as IconMoon, BarChart3 as IconBarChart, HelpCircle as IconHelp, Settings as IconSettings, CreditCard as IconCreditCard, LogOut } from "lucide-react";
 import { useTheme } from 'next-themes';
 import Image from "next/image";
 import Link from "next/link";

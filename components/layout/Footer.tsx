@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Heart, Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
 
 export const Footer7 = ({ className = "" }: { className?: string }) => {
   const currentYear = new Date().getFullYear();
@@ -158,4 +158,3 @@ export const Footer7 = ({ className = "" }: { className?: string }) => {
     </footer>
   );
 };
-

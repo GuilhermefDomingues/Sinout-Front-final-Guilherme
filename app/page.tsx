@@ -1,27 +1,21 @@
-"use client";
-
-import { VLibras } from '@/components/Vlibras';
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
-import { ModernMenu } from "@/components/layout/Header";
-import { ArrowRight } from 'lucide-react';
-import { HeroGeometricAnimation } from "@/components/sections/hero-geometric-animation";
-import { ViteTimeline } from "@/components/sections/vite-timeline";
-import { ViteProjectsGallery } from "@/components/sections/vite-projects-gallery";
-import { VitePricing } from "@/components/sections/vite-pricing";
-import { ViteDemoSection } from "@/components/sections/vite-demo-section";
-import { ViteContactSection } from "@/components/sections/vite-contact-section";
-import FacialRecognitionAnimation from "@/components/sections/FacialRecognitionAnimation";
-// import CustomCursor  from "@/components/ui/pointer";
-import Script from "next/script";
-
-const Particles = dynamic(() => import('@/components/ui/Particles'), { ssr: false });
-const Footer7 = dynamic(() => import("@/components/layout/Footer").then(mod => mod.Footer7));
-
 /**
  * Página Inicial (Home).
  * Landing page focada em apresentar a Sinout e direcionar para a equipe.
  */
+"use client";
+
+import { ModernMenu } from "@/components/layout/Header";
+import { Footer7 } from "@/components/layout/Footer";
+import Particles from "@/components/ui/Particles";
+import { HeroGeometricAnimation } from "@/components/sections/hero-geometric-animation";
+import { ViteDemoSection } from "@/components/sections/vite-demo-section";
+import { ViteTimeline } from "@/components/sections/vite-timeline";
+import { VitePricing } from "@/components/sections/vite-pricing";
+import { ViteContactSection } from "@/components/sections/vite-contact-section";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import Script from "next/script";
+
 export default function Home() {
   const particleColors = ['#9333EA', '#F97316', '#A855F7']; // Sinout colors: Purple, Orange, Light Purple
 
@@ -29,10 +23,6 @@ export default function Home() {
   const socialItems = [
     { label: "", href: "#" },
   ];
-
-
-
-
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden">
@@ -66,8 +56,8 @@ export default function Home() {
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-10 backdrop-blur-sm bg-muted/50 p-4 rounded-xl border border-border/50">
               Dê voz às suas expressões. Transforme micro-gestos em palavras com tecnologia acessível para comunicação sem limites.
             </p>
-            
-             
+
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link href="/sobre">
                 <button className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 text-white font-bold text-lg shadow-[0_0_20px_rgba(249,115,22,0.5)] transition-all hover:scale-105 flex items-center gap-2">
@@ -105,24 +95,24 @@ export default function Home() {
         <div className="h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent w-full" />
 
         {/* Separador visual */}
-        < div className="h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent w-full" />
+        <div className="h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent w-full" />
 
         {/* Seção de Contato */}
-        < ViteContactSection />
+        <ViteContactSection />
 
         {/* Separador visual */}
-        < div className="h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent w-full" />
+        <div className="h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent w-full" />
       </main >
 
       {/* Rodapé */}
-      < Footer7 className="mt-auto border-t border-border bg-muted/30" />
-    {/* < CustomCursor /> */}
-    <Script
-      src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js"
-      strategy="lazyOnload"
-      defer
-    />
-    
+      <Footer7 className="mt-auto border-t border-border bg-muted/30" />
+      {/* < CustomCursor /> */}
+      <Script
+        src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js"
+        strategy="lazyOnload"
+        defer
+      />
+
     </div >
   );
 }

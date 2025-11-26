@@ -89,12 +89,14 @@ export default function Termos() {
                                 <li>Você não pode copiar, modificar ou distribuir nossa implementação personalizada</li>
                                 <li>Dados dos usuários permanecem propriedade dos respectivos usuários</li>
                             </ul>
-                        </section>                        <section>
+                        </section>
+
+                        <section>
                             <h2 className="text-2xl font-semibold text-foreground border-b-2 border-primary pb-1 mb-4">6. Limitações de Responsabilidade</h2>
 
                             <h3 className="text-xl font-medium text-foreground mt-4">6.1 Isenção de Garantias</h3>
                             <p className="text-muted-foreground leading-relaxed">
-                                O Sinout é fornecido "como está", sem garantias de qualquer tipo. Não garantimos que o serviço será ininterrupto, livre de erros, ou adequado para seus propósitos específicos.
+                                O Sinout é fornecido &quot;como está&quot;, sem garantias de qualquer tipo. Não garantimos que o serviço será ininterrupto, livre de erros, ou adequado para seus propósitos específicos.
                             </p>
 
                             <h3 className="text-xl font-medium text-foreground mt-4">6.2 Limitação de Danos</h3>
@@ -127,40 +129,6 @@ export default function Termos() {
                             <h2 className="text-2xl font-semibold text-foreground border-b-2 border-primary pb-1 mb-4">8. Suspensão e Encerramento</h2>
                             <ul className="list-disc list-inside text-muted-foreground ml-4">
                                 <li>Podemos suspender ou encerrar sua conta por violação destes termos</li>
-                                <li>Você pode encerrar sua conta a qualquer momento</li>
-                                <li>Dados serão retidos conforme nossa política de privacidade</li>
-                                <li>Encerramento não isenta responsabilidades por violações anteriores</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h2 className="text-2xl font-semibold text-foreground border-b-2 border-primary pb-1 mb-4">9. Modificações dos Termos</h2>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Podemos atualizar estes termos periodicamente. Alterações significativas serão notificadas por email ou através da plataforma. O uso continuado constitui aceitação dos novos termos.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h2 className="text-2xl font-semibold text-foreground border-b-2 border-primary pb-1 mb-4">10. Lei Aplicável e Jurisdição</h2>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Estes termos são regidos pelas leis brasileiras. Qualquer disputa será resolvida nos tribunais competentes do Brasil.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h2 className="text-2xl font-semibold text-foreground border-b-2 border-primary pb-1 mb-4">11. Contato</h2>
-                            <p className="text-muted-foreground leading-relaxed">Para dúvidas sobre estes termos:</p>
-                            <ul className="list-disc list-inside text-muted-foreground ml-4">
-                                <li>Email: legal@sinout.com</li>
-                                <li>Telefone: (11) 9999-9999</li>
-                                <li>Endereço: São Paulo, SP</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h2 className="text-2xl font-semibold text-foreground border-b-2 border-primary pb-1 mb-4">12. Disposições Gerais</h2>
-                            <ul className="list-disc list-inside text-muted-foreground ml-4">
-                                <li>Estes termos constituem o acordo completo entre as partes</li>
                                 <li>Se qualquer disposição for considerada inválida, as demais permanecem em vigor</li>
                                 <li>Não há terceiros beneficiários destes termos</li>
                             </ul>

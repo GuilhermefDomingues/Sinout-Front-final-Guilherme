@@ -6,7 +6,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import Script from "next/script";
 import "./globals.css";
-import { VLibras } from "@/components/Vlibras"; // ✅ aqui
+import { VLibras } from "@/components/Vlibras";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,7 +75,7 @@ export default function RootLayout({
             <ContextMenu />
             <CookieConsent />
             {children}
-        <VLibras />
+            <VLibras />
           </AuthProvider>
         </ThemeProvider>
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { User, CreditCard, LogOut, Save, Edit2, Camera, Sun, Moon, Globe, Shield, Lock, Mail, FileText } from 'lucide-react';
 
 // Interface define os tipos de dados do perfil
@@ -13,7 +14,7 @@ interface Perfil {
 const GerenciarPerfil: React.FC = () => {
   // Estado para tema (claro/escuro)
   const [temaEscuro, setTemaEscuro] = useState(false);
-  
+
   // Estado para idioma
   const [idioma, setIdioma] = useState<'pt' | 'en'>('pt');
 
@@ -30,7 +31,7 @@ const GerenciarPerfil: React.FC = () => {
   const [editandoPaciente, setEditandoPaciente] = useState(false);
   const [editandoCuidador, setEditandoCuidador] = useState(false);
   const [mostrarPlanos, setMostrarPlanos] = useState(false);
-  
+
   // Estados para segurança
   const [editandoSenha, setEditandoSenha] = useState(false);
   const [editandoEmail, setEditandoEmail] = useState(false);
@@ -153,13 +154,12 @@ const GerenciarPerfil: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <button
               onClick={() => setIdioma('pt')}
-              className={`p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${
-                idioma === 'pt'
+              className={`p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${idioma === 'pt'
                   ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900'
                   : temaEscuro
-                  ? 'border-gray-600 bg-gray-700 hover:border-indigo-400'
-                  : 'border-gray-300 hover:border-indigo-400'
-              }`}
+                    ? 'border-gray-600 bg-gray-700 hover:border-indigo-400'
+                    : 'border-gray-300 hover:border-indigo-400'
+                }`}
             >
               <div className="flex items-center justify-center gap-3">
                 <span className="text-3xl">🇧🇷</span>
@@ -171,13 +171,12 @@ const GerenciarPerfil: React.FC = () => {
 
             <button
               onClick={() => setIdioma('en')}
-              className={`p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${
-                idioma === 'en'
+              className={`p-4 rounded-lg border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${idioma === 'en'
                   ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900'
                   : temaEscuro
-                  ? 'border-gray-600 bg-gray-700 hover:border-indigo-400'
-                  : 'border-gray-300 hover:border-indigo-400'
-              }`}
+                    ? 'border-gray-600 bg-gray-700 hover:border-indigo-400'
+                    : 'border-gray-300 hover:border-indigo-400'
+                }`}
             >
               <div className="flex items-center justify-center gap-3">
                 <span className="text-3xl">🇺🇸</span>
@@ -193,9 +192,11 @@ const GerenciarPerfil: React.FC = () => {
         <div className={`${temaEscuro ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg p-6 mb-6 transition-colors duration-300`}>
           <div className="flex flex-col items-center">
             <div className="relative mb-4">
-              <img
+              <Image
                 src={perfil.fotoPerfil}
                 alt="Foto de perfil"
+                width={128}
+                height={128}
                 className="w-32 h-32 rounded-full object-cover border-4 border-indigo-500 shadow-lg"
               />
               <label
@@ -362,7 +363,7 @@ const GerenciarPerfil: React.FC = () => {
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 animate-fadeIn">
               {/* Plano Olhar Completo */}
               <div className={`${temaEscuro ? 'bg-gray-700' : 'bg-gray-50'} p-6 rounded-lg border-2 border-indigo-600 hover:border-indigo-700 transition-all duration-300 hover:scale-105 transform cursor-pointer`}
-                   onClick={() => selecionarPlano('Olhar Completo')}>
+                onClick={() => selecionarPlano('Olhar Completo')}>
                 <h3 className={`text-xl font-bold mb-2 ${temaEscuro ? 'text-white' : 'text-gray-800'}`}>
                   Olhar Completo
                 </h3>
@@ -380,7 +381,7 @@ const GerenciarPerfil: React.FC = () => {
 
               {/* Plano Olhar Corporativo */}
               <div className={`${temaEscuro ? 'bg-gray-700' : 'bg-gray-50'} p-6 rounded-lg border-2 border-purple-600 hover:border-purple-700 transition-all duration-300 hover:scale-105 transform cursor-pointer`}
-                   onClick={() => selecionarPlano('Olhar Corporativo')}>
+                onClick={() => selecionarPlano('Olhar Corporativo')}>
                 <div className="flex justify-between items-start mb-2">
                   <h3 className={`text-xl font-bold ${temaEscuro ? 'text-white' : 'text-gray-800'}`}>
                     Olhar Corporativo

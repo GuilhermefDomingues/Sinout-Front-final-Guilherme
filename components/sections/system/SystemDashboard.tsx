@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { CameraCard } from "./CameraCard";
 import { ResultsCard } from "./ResultsCard";
-import { PatientSelector } from "./PatientSelector";
+
 import { CreateRuleModal } from "./CreateRuleModal";
 import { Patient } from "@/components/sections/statistics/types";
 import { SystemContextMenu } from "@/components/ui/SystemContextMenu";

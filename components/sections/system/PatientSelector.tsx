@@ -47,12 +47,6 @@ export function PatientSelector({ selectedPatient, onSelect }: PatientSelectorPr
                         { _id: "3", nome: "Pedro Oliveira", idade: 58, diagnostico: "Parkinson", id_cuidador: 1, data_cadastro: "2024-03-10", status: true, informacoes_adicionais: null, foto_perfil: null, criado_por: "admin" }
                     ];
                     setPatients(mockPatients);
-                    patientsList = mockPatients;
-                }
-
-                // Auto-select first patient if none selected
-                if (patientsList.length > 0 && !selectedPatient) {
-                    onSelect(patientsList[0]);
                 }
             } catch (error) {
                 // console.error("Failed to fetch patients", error);
@@ -63,6 +57,13 @@ export function PatientSelector({ selectedPatient, onSelect }: PatientSelectorPr
 
         fetchPatients();
     }, []);
+
+    // Auto-select first patient if none selected
+    useEffect(() => {
+        if (!loading && patients.length > 0 && !selectedPatient) {
+            onSelect(patients[0]);
+        }
+    }, [loading, patients, selectedPatient, onSelect]);
 
     return (
         <div className="relative group min-w-[250px]">

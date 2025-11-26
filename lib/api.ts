@@ -24,7 +24,7 @@ import axios from 'axios';
  * - Configuração CORS
  */
 const api = axios.create({
-    baseURL: typeof window !== 'undefined' ? '/' : process.env.NEXT_PUBLIC_API_BASE_URL || 'https://sinout-back.onrender.com',
+    baseURL: typeof window !== 'undefined' ? '/' : process.env.NEXT_PUBLIC_API_BASE_URL,
     withCredentials: true,
     headers: {
         'Content-Type': 'application/json',

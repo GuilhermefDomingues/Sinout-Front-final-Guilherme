@@ -27,20 +27,15 @@ interface PasswordValidation {
 }
 
 const CardLogin: React.FC = () => {
+    const router = useRouter();
     const { login } = useAuth();
-    const [formData, setFormData] = useState<LoginFormData>({
-        email: '',
-        password: '',
-    });
-
+    const [formData, setFormData] = useState<LoginFormData>({ email: '', password: '' });
     const [errors, setErrors] = useState<FormErrors>({});
-    const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [showPassword, setShowPassword] = useState<boolean>(false);
-    const [showPasswordRequirements, setShowPasswordRequirements] = useState<boolean>(false);
-
+    const [isLoading, setIsLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const [showPasswordRequirements, setShowPasswordRequirements] = useState(false);
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
-    const router = useRouter();
 
     const validateEmail = (email: string): boolean => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -106,7 +101,7 @@ const CardLogin: React.FC = () => {
             newErrors.password = 'Por favor, insira sua senha';
         } else {
             const validation = validatePasswordStrength(formData.password);
-            
+
             if (!validation.minLength) {
                 newErrors.password = 'A senha deve ter no mínimo 8 caracteres';
             } else if (!validation.hasUpperCase) {
@@ -154,7 +149,7 @@ const CardLogin: React.FC = () => {
         </div>
     );
 
-   return (
+    return (
         <div className="min-h-screen flex items-center justify-center p-6 bg-background relative overflow-hidden">
             {/* Background Gradients */}
             <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-purple-500/20 blur-[120px] rounded-full pointer-events-none" />
@@ -237,7 +232,7 @@ const CardLogin: React.FC = () => {
                                 {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                             </button>
                         </div>
-                        
+
                         {/* Requisitos de senha */}
                         {showPasswordRequirements && formData.password && (
                             <div className="mt-3 p-3 rounded-lg bg-muted/50 border border-border space-y-1.5">
@@ -249,7 +244,7 @@ const CardLogin: React.FC = () => {
                                 <RequirementItem met={passwordValidation.hasSpecialChar} text="Um caractere especial (!@#$%...)" />
                             </div>
                         )}
-                        
+
                         {errors.password && (
                             <span className="text-sm text-red-400 flex items-center gap-1">
                                 ⚠️ {errors.password}

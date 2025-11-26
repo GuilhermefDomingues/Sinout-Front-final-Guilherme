@@ -77,7 +77,10 @@ export function ContextMenu() {
 
     // Efeito para marcar que estamos no cliente
     useEffect(() => {
-        setIsClient(true);
+        const timer = setTimeout(() => {
+            setIsClient(true);
+        }, 0);
+        return () => clearTimeout(timer);
     }, []);
 
     /**

@@ -1,13 +1,13 @@
 "use client";
 
-import { ModernMenu } from "@/components/layout/Header";
+
 import { motion } from "framer-motion";
-import { MethodologyModal } from "@/components/modals/MethodologyModal";
-import { ArrowLeft, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowLeft, Github, Linkedin } from "lucide-react";
+import { ModernMenu } from "@/components/layout/Header";
+import { MethodologyModal } from "@/components/modals/MethodologyModal";
 
-// Dados reais da equipe (preenchido a partir dos perfis no site)
 const teamMembers = [
     {
         name: "Fabio Rocha",
@@ -23,7 +23,7 @@ const teamMembers = [
         social: {
             github: "https://github.com/FabioRoberto-ppt",
             linkedin: "https://www.linkedin.com/in/fabio-roberto-980199301/",
-            
+
         }
     },
     {
