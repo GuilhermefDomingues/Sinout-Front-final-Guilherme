@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { SystemDashboard } from "@/components/sections/system/SystemDashboard";
 import { ModernMenu } from "@/components/layout/Header";
-import CustomCursor  from "@/components/ui/pointer";
 import dynamic from "next/dynamic";
 
 
@@ -49,7 +48,6 @@ export default function SistemaPage() {
             </main>
 
             <Footer7 className="mt-auto border-t border-border bg-muted/30" />
-            <CustomCursor />
         </div>
     );
 }

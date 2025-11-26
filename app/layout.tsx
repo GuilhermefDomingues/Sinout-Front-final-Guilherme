@@ -7,6 +7,7 @@ import { CookieConsent } from "@/components/ui/CookieConsent";
 import Script from "next/script";
 import "./globals.css";
 import { VLibras } from "@/components/Vlibras";
+import CustomCursor from "@/components/ui/pointer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,6 +66,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <CustomCursor />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

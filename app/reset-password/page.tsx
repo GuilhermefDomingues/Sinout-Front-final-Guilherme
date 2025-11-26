@@ -1,5 +1,5 @@
 import CardResetPassword from "@/components/forms/auth/CardResetPassword";
-import CustomCursor  from "@/components/ui/pointer";
+import CustomCursor from "@/components/ui/pointer";
 
 /**
  * Página de Solicitação de Reset de Senha
@@ -25,14 +25,14 @@ import CustomCursor  from "@/components/ui/pointer";
  * @returns {JSX.Element} Página completa com formulário de reset
  */
 export default function ResetPasswordPage() {
-    return(
+    return (
         <>
-        <header>
-            <title>Sinout - Redefinir Senha</title>
-        </header>
-            <CardResetPassword />;
-            <CustomCursor />
+            <header>
+                <title>Sinout - Redefinir Senha</title>
+            </header>
+            <CardResetPassword />
+
         </>
     )
-    
+
 }

@@ -1,5 +1,4 @@
 import CardLogin from "@/components/forms/auth/CardLogin";
-import CustomCursor  from "@/components/ui/pointer";
 
 /**
  * Página de Autenticação (Login)
@@ -41,14 +40,13 @@ import CustomCursor  from "@/components/ui/pointer";
  * @returns {JSX.Element} Página completa com formulário de login
  */
 export default function LoginPage() {
-    return(
+    return (
         <>
-        <header>
-            <title>Sinout - Login</title>
-        </header>
+            <header>
+                <title>Sinout - Login</title>
+            </header>
             <CardLogin />;
-            <CustomCursor />
         </>
-    ) 
-        
+    )
+
 }
