@@ -113,10 +113,10 @@ export function StatisticsDashboard() {
                     5000
                 );
             } catch (error) {
-                console.warn("API request timed out or failed, using mock data", error);
-                historyResponse = { data: mockHistory };
-                rulesResponse = { data: mockRules };
-                patientResponse = { data: mockPatient };
+                // Tempo limite atingido ou requisição falhou; usa fallback de arrays vazios
+                historyResponse = { data: [] };
+                rulesResponse = { data: [] };
+                patientResponse = { data: null };
             }
 
             if (!historyResponse || !rulesResponse || !patientResponse) {
@@ -156,7 +156,7 @@ export function StatisticsDashboard() {
             } else if (rawHistory && Array.isArray((rawHistory as { items?: ApiHistoryItem[] }).items)) {
                 historyArray = (rawHistory as { items?: ApiHistoryItem[] }).items!.map(mapHistoryItem);
             } else {
-                console.error("Unexpected history response format", rawHistory);
+                // Formato de resposta de histórico inesperado — ignora e segue sem dados
             }
 
             historyArray = historyArray.filter(item =>
@@ -187,7 +187,7 @@ export function StatisticsDashboard() {
             } else if (rawRules && Array.isArray((rawRules as { data?: ApiRuleItem[] }).data)) {
                 rulesArray = (rawRules as { data?: ApiRuleItem[] }).data!.map(mapRuleItem);
             } else {
-                console.error("Unexpected rules response format", rawRules);
+                // Formato de resposta de regras inesperado — ignora e segue sem regras
             }
 
             setRules(rulesArray);
@@ -210,7 +210,7 @@ export function StatisticsDashboard() {
             setError(null);
         } catch (err: unknown) {
             const error = err as Error;
-            console.error("Failed to fetch data", err);
+            // Falha ao buscar dados: error armazenado em estado para exibição ao usuário
             setError(error?.message || "Erro ao carregar dados");
             setFilteredHistory([]);
             setRules([]);
