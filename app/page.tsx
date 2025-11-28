@@ -17,7 +17,7 @@ import { ArrowRight } from "lucide-react";
 import Script from "next/script";
 
 export default function Home() {
-  const particleColors = ['#9333EA', '#F97316', '#A855F7']; // Sinout colors: Purple, Orange, Light Purple
+  const particleColors = ['#9333EA', '#F97316', '#A855F7'];
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden">
