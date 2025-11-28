@@ -176,7 +176,7 @@ export const ViteContactSection = () => {
                                 {/* Campo de email */}
                                 <div>
                                     <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-2">
-                                        Email
+                                        E-mail
                                     </label>
                                     <input
                                         type="email"

@@ -164,7 +164,7 @@ export const VitePricing = () => {
         {
             name: "Olhar Básico",
             price: "Gratuito",
-            description: "Para uso individual. Recupere sua autonomia de comunicação básica.",
+            description: "Para uso individual. Recupere sua comunicação básica.",
             icon: PersonalIcon,
             features: [
                 "Tradução de expressões básicas",
@@ -176,8 +176,8 @@ export const VitePricing = () => {
         },
         {
             name: "Olhar Completo",
-            price: "R$ 49",
-            description: "Recursos avançados para o paciente e ferramentas de monitoramento para cuidador.",
+            price: "R$ 99,90",
+            description: "Recursos avançados e ferramentas de monitoramento para cuidador.",
             icon: FamilyIcon,
             features: [
                 "Tudo do plano Olhar Básico",

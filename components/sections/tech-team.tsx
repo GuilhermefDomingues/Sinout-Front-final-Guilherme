@@ -9,7 +9,7 @@
  */
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Database, Server, Code2, Bug, ClipboardList, Palette, Users, Target, Megaphone, DollarSign, Headphones, Layout } from "lucide-react";
+import { Github, Linkedin, Database, Server, Code2, Bug, ClipboardList, Palette, Handshake, Target, Megaphone, DollarSign, Headphones, Layout, Search, BotMessageSquare, Speech, TvMinimalPlay } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -51,13 +51,13 @@ const team: TeamMember[] = [
         role: "Scrum Master & Full Stack",
         handle: "@FabioRoberto-ppt",
         avatar: "/Fabio.svg",
-        tags: ["Agile", "Leadership", "Jira"],
+        tags: ["Next.Js", "Designer", "Gestão de pessoas"],
         color: "from-blue-500 to-cyan-500",
         github: "https://github.com/FabioRoberto-ppt",
         linkedin: "https://www.linkedin.com/in/fabio-rocha",
         responsibilities: [
-            { icon: Palette, label: "UI/UX", color: "text-purple-400" },
-            { icon: Users, label: "Leadership", color: "text-yellow-400" },
+            { icon: Palette, label: "Front-End", color: "text-purple-400" },
+            { icon: Search, label: "Pesquisas", color: "text-yellow-400" },
             { icon: Code2, label: "Desenvolvimento", color: "text-green-400" },
             { icon: ClipboardList, label: "Metodologias Ágeis", color: "text-blue-400" },
         ]
@@ -67,13 +67,13 @@ const team: TeamMember[] = [
         role: "Product Owner & Marketing",
         handle: "@luanarochamiron",
         avatar: "/Luana.svg",
-        tags: ["Product", "Strategy", "UX"],
+        tags: ["Alinhamento", "Pensamento critíco", "BackLog"],
         color: "from-purple-500 to-pink-500",
         github: "https://github.com/luanarochamiron",
         linkedin: "https://www.linkedin.com/in/luana-miron",
         responsibilities: [
             { icon: Layout, label: "Estratégia", color: "text-blue-400" },
-            { icon: Palette, label: "UX Design", color: "text-purple-400" },
+            { icon: Handshake, label: "Liderança", color: "text-purple-400" },
             { icon: Target, label: "Gestão de Produto", color: "text-red-400" },
             { icon: Megaphone, label: "Comunicação", color: "text-pink-400" },
         ]
@@ -83,7 +83,7 @@ const team: TeamMember[] = [
         role: "Full Stack & DevOps Lead",
         handle: "@Xcode-sketcher",
         avatar: "/Eduardo.svg",
-        tags: ["Full Stack", "QA", "DevOps", "DBA"],
+        tags: ["Full Stack", "DevOps", "DBA"],
         color: "from-green-500 to-emerald-500",
         github: "https://github.com/Xcode-sketcher",
         linkedin: "https://www.linkedin.com/in/eduardo-barbosa-silva-896635363/",
@@ -99,15 +99,15 @@ const team: TeamMember[] = [
         role: "Full Stack & Marketing",
         handle: "@GuilhermefDomingues",
         avatar: "/Guilherme.svg",
-        tags: ["React", "Next.js", "TypeScript"],
+        tags: ["C#", "Next.js", "TypeScript"],
         color: "from-orange-500 to-red-500",
         github: "https://github.com/GuilhermefDomingues",
         linkedin: "https://www.linkedin.com/in/guilherme-fran%C3%A7a-domingues-84a070276/",
         responsibilities: [
             { icon: Palette, label: "UI/UX", color: "text-purple-400" },
-            { icon: Layout, label: "React", color: "text-blue-400" },
-            { icon: Code2, label: "Integração", color: "text-orange-400" },
-            { icon: Megaphone, label: "Conteúdo Digital", color: "text-pink-400" },
+            { icon: Layout, label: "Resolução de problemas", color: "text-blue-400" },
+            { icon: Code2, label: "Desenvolvimento", color: "text-orange-400" },
+            { icon: TvMinimalPlay, label: "Conteúdo Digital", color: "text-pink-400" },
         ]
     },
     {
@@ -115,15 +115,15 @@ const team: TeamMember[] = [
         role: "Full Stack & Finance",
         handle: "@ErickIsaac",
         avatar: "/Erick.svg",
-        tags: ["Frontend", "Backend", "IA"],
+        tags: ["Frontend", "Desenvolvimento", "JavaScript"],
         color: "from-indigo-500 to-blue-500",
         github: "https://github.com/IsaacZ33",
         linkedin: "https://www.linkedin.com/in/erick-isaac",
         responsibilities: [
             { icon: DollarSign, label: "Financeiro", color: "text-green-400" },
             { icon: Headphones, label: "Suporte", color: "text-blue-400" },
-            { icon: Server, label: "Backend", color: "text-purple-400" },
-            { icon: Code2, label: "Integração", color: "text-indigo-400" },
+            { icon: Speech, label: "Comunicação", color: "text-purple-400" },
+            { icon: BotMessageSquare, label: "IA", color: "text-indigo-400" },
         ]
     },
     {
@@ -138,8 +138,8 @@ const team: TeamMember[] = [
         responsibilities: [
             { icon: Layout, label: "Prototipagem", color: "text-blue-400" },
             { icon: Palette, label: "Estilização", color: "text-pink-400" },
-            { icon: Server, label: "Integração", color: "text-green-400" },
-            { icon: Code2, label: "Performance", color: "text-teal-400" },
+            { icon: Server, label: "UI/UX", color: "text-green-400" },
+            { icon: Search, label: "Pesquisas", color: "text-teal-400" },
         ]
     }
 ];

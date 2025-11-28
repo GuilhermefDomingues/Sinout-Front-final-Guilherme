@@ -54,7 +54,7 @@ export default function Home() {
               Sinout
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-10 backdrop-blur-sm bg-muted/50 p-4 rounded-xl border border-border/50">
-              Dê voz às suas expressões. Transforme micro-gestos em palavras com tecnologia acessível para comunicação sem limites.
+              Dê voz às suas expressões. Transforme micro-expressões em palavras com tecnologia acessível para comunicação sem limites.
             </p>
 
 

@@ -25,12 +25,12 @@ const features: Feature[] = [
     {
         icon: <Brain className="w-6 h-6 text-purple-500" />,
         title: "Inovação em IA",
-        description: "Desenvolvemos algoritmos avançados de reconhecimento facial para transformar expressões em comunicação verbal acessível."
+        description: "Utilizamos tecnologias avançadas de reconhecimento facial para interpretar expressões e transformá-las em informações acessíveis."
     },
     {
         icon: <Users className="w-6 h-6 text-blue-500" />,
         title: "Tecnologia e Cuidado que Trabalham Juntos",
-        description: "Somos uma equipe multidisciplinar comprometida em desenvolver soluções que dão voz e independência a pessoas com limitações motoras."
+        description: "Somos uma equipe multidisciplinar comprometida em desenvolver soluções que ampliam a compreensão das expressões e facilitam a comunicação de pessoas com limitações motoras."
     },
     {
         icon: <Zap className="w-6 h-6 text-yellow-500" />,

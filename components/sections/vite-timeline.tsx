@@ -128,8 +128,8 @@ export const ViteTimeline = () => {
         },
         {
             date: "Futuro",
-            title: "Autonomia Recuperada",
-            description: "Entregamos independência. Permitimos que pensamentos e sentimentos sejam expressos livremente.",
+            title: "Expressões Entendidas",
+            description: "Tornamos mais simples compreender pensamentos e sentimentos por meio das microexpressões faciais, oferecendo clareza e apoio à comunicação não verbal.",
             icon: Calendar,
             color: "from-amber-500 to-orange-500"
         }

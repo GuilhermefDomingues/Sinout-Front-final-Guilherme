@@ -36,7 +36,7 @@ export const ViteDemoSection = () => {
                         Como Funciona
                     </h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                        Nossa IA avançada detecta micro-expressões faciais e as traduz em tempo real em comunicação verbal, e devolve a autonomia para quem precisa.
+                        Nossa IA avançada identifica microexpressões faciais e as transforma em informações claras e acessíveis, ajudando usuários, cuidadores e profissionais a compreender melhor emoções e estados não verbais.
                     </p>
                 </div>
 

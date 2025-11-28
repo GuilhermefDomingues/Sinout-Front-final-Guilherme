@@ -102,9 +102,8 @@ export default function RootLayout({
           strategy="lazyOnload"
           defer
         />
-
-        {/* VLibras aqui */}
       </body>
     </html>
   );
 }
+
