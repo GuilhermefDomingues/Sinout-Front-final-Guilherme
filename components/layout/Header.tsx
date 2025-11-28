@@ -37,7 +37,7 @@ interface SocialItem {
  */
 interface ModernMenuProps {
     items: MenuItem[];
-    socialItems: SocialItem[];
+    socialItems?: SocialItem[];
     logoUrl?: string;
 }
 
@@ -106,6 +106,12 @@ export function ModernMenu({
     const [open, setOpen] = useState(false);
     const pathname = usePathname();
     const { user, logout } = useAuth();
+
+    // Determine which social items to display
+    // Use defaults if socialItems is undefined, empty, or contains only placeholders (empty label)
+    const displaySocialItems = (socialItems && socialItems.length > 0 && socialItems.some(item => item.label !== ""))
+        ? socialItems
+        : DEFAULT_SOCIAL_ITEMS;
 
     // Função para gerar itens do menu baseado na rota atual
     const getMenuItems = () => {
@@ -219,7 +225,7 @@ export function ModernMenu({
 
                 {/* Links sociais para desktop */}
                 <div className="hidden md:flex items-center space-x-4">
-                    {(socialItems.length > 0 ? socialItems : DEFAULT_SOCIAL_ITEMS).map((social) => (
+                    {displaySocialItems.map((social) => (
                         <Link
                             key={social.label}
                             href={social.href}
@@ -381,7 +387,7 @@ export function ModernMenu({
 
                                     {/* Grid de links sociais */}
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                        {(socialItems.length > 0 ? socialItems : DEFAULT_SOCIAL_ITEMS).map((social) => {
+                                        {displaySocialItems.map((social) => {
                                             const icon = (() => {
                                                 switch (social.label.toLowerCase()) {
                                                     case "github":

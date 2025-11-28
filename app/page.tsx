@@ -19,15 +19,10 @@ import Script from "next/script";
 export default function Home() {
   const particleColors = ['#9333EA', '#F97316', '#A855F7']; // Sinout colors: Purple, Orange, Light Purple
 
-  // Configuração dos links sociais
-  const socialItems = [
-    { label: "", href: "#" },
-  ];
-
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden">
       {/* Menu de navegação */}
-      <ModernMenu items={[]} socialItems={socialItems} />
+      <ModernMenu items={[]} />
 
       <main className="flex-grow">
         {/* Hero Section com Animação Geométrica e Partículas */}
